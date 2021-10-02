@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
     await Security.validaLogin(user, req.body.senha);
 
     let token = Security.criaToken(user);
-    res.status(200).json({ auth: true, token, role: user.role });
+    res.status(200).json({ auth: true, token, role: user.role , email: user.email});
   } catch (erro) {
     res.status(401).json({ auth: false, erro });
   }
