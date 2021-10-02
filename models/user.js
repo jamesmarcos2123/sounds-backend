@@ -9,8 +9,8 @@ const userSchema = new mongoose.Schema({
   bloqueado: {type: Boolean, default: false},
   role: {
     type: String,
-    enum : ['administrador', 'usuario', 'vip'],
-    default: 'usuario'
+    enum : ['adm', 'user', 'vip'],
+    default: 'user'
   }  
 }, { 
   timestamps: true 
