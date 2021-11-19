@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 const uniqueValidator = require('mongoose-unique-validator');
 
 const soundsSchema = new mongoose.Schema({
-  name: {type: Email, required: true, unique: true},  
+  nome: {type: String, unique: true},
+  categoria: {type: String, unique: true} 
 }, { 
   timestamps: true 
 });
