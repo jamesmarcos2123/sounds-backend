@@ -14,6 +14,7 @@ router.get('/', async (req, res) => {
   router.delete('/:id', Security.isAutenticado, findId, Security.hasRole('adm'), async (req, res) => {
     await req.sound.remove();
   });
+  
 router.post('/', Security.isAutenticado,  Security.hasRole('vip'),  async (req, res) =>  {
     try {
       const novo = await new Sound(req.body).save();
