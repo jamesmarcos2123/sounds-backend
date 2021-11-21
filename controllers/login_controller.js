@@ -3,6 +3,7 @@ const router = express.Router();
 const Security = require('../services/security_service');
 const User = require('../models/user');
 
+
 router.post('/', async (req, res) => {
   let user = await User.findOne({email: req.body.email});
 

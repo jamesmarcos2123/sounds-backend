@@ -26,6 +26,7 @@
     "mongoose": "^6.0.8",
     "mongoose-type-email": "^1.1.2",
     "mongoose-unique-validator": "^2.0.3",
+    "nodemailer": "^6.7.1",
     "nodemon": "^2.0.13",
     "uuid": "^8.3.2",
     "winston": "^3.3.3"

@@ -13,6 +13,7 @@ app.use(cors()); // permitindo requisições de outros hosts
 app.use('/login', require('./controllers/login_controller'));
 app.use('/usuarios', require('./controllers/user_controller'));
 app.use('/som', require('./controllers/sound_controller'))
+app.use('/email', require('./controllers/email_controller'))
 
 
 console.log("Conectando ao Banco de dados");
