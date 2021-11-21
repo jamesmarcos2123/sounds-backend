@@ -16,7 +16,7 @@ const sendEmail = async (email, user) => {
         from: 'Recuperação de senha',
         to: email,
         subject: 'Recuperação de senha',
-        text: "Para trocar de senha entre no link <a>" + process.env.LINK_RECUPERACAO + "/redefinir-senha/" + user.id + "</a>"
+        text: "Para trocar de senha entre no link: " + process.env.LINK_RECUPERACAO + "/redefinir-senha/" + user.id
     };
 
     transporter.sendMail(mailOptions, () => {
