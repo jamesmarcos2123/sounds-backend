@@ -14,9 +14,20 @@ router.get('/', async (req, res) => {
   router.delete('/:id', Security.isAutenticado, findId, Security.hasRole('adm'), async (req, res) => {
     await req.sound.remove();
   });
-  
+
 router.post('/', Security.isAutenticado,  Security.hasRole('vip'),  async (req, res) =>  {
     try {
+      var freq = getRandomIntInclusive(5000,1);
+      if(freq < 1000) {
+        req.body.frequencia = freq;
+        req.body.classificacao = "leve"
+      } else if(freq > 4000) {
+        req.body.frequencia = freq;
+        req.body.classificacao = "pesado"
+      } else {
+        req.body.frequencia = freq;
+        req.body.classificacao = "medio"
+      }
       const novo = await new Sound(req.body).save();
       res.status(201).json(novo);
     } catch (e) {
@@ -39,4 +50,11 @@ router.post('/', Security.isAutenticado,  Security.hasRole('vip'),  async (req, 
   
     next();
   };
+
+
+  function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 module.exports = router;

@@ -7,7 +7,7 @@ router.post('/', async (req, res) => {
   let user = await User.findOne({email: req.body.email});
 
   try {
-    await Security.validaLogin(user.email, req.body.senha);
+    await Security.validaLogin(user, req.body.senha);
 
     let token = Security.criaToken(user);
     res.status(200).json({ auth: true, token, role: user.role , email: user.email});

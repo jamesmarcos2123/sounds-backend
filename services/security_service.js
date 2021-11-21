@@ -79,9 +79,7 @@ const validaLogin = async (usuario, senha) => {
   if (!usuario) {
     throw 'Não foi encontrado um usuário com o email informado!';
   } else if (await bcrypt.compare(senha, usuario.senha)) {
-    if (!usuario.validado) {
-      throw 'Sua conta ainda não foi validada. Verifique sua caixa de e-mail.';
-    }
+    
   } else {
     throw 'Senha inválida!';
   }
