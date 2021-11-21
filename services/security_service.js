@@ -49,7 +49,7 @@ const isAutenticado = (req, res, next) => {
   
   jwt.verify(token, process.env.SECRET, (err, decoded) => {
     if (err) { // se o token é inválido
-      return res.status(500).send({ 
+      return res.status(401).send({ 
         auth: false, 
         message: 'Token inválido.' 
       });

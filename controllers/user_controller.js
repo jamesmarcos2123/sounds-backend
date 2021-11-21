@@ -28,16 +28,11 @@ router.delete('/:id', Security.isAutenticado,  Security.hasRole('adm'),findId, a
   res.status(200).json({"message":"Usuario removido com sucesso"})
 });
 
-router.put('/:id', Security.isAutenticado, findId, async (req, res) => {
-  try{
-    req.body.senha = await Security.encripta(req.body.senha)
+router.put('/:id', findId, async (req, res) => {
+  
+  req.body.senha = await Security.encripta(req.body.senha)
   await req.usuario.set(req.body).save();
-
   res.status(200).json({"message":"Usuario atualizado com sucesso"})
-  } catch(e){
-    res.status(400).json({"message":"email já utilizado"})
-
-  }
 });
 
 // função de middleware para recuperar um usuario pelo id
