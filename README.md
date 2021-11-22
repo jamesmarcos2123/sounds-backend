@@ -3,6 +3,5 @@
 Backend do aplicativo web sounds
 
 
-#front end sounds
-
-https://github.com/jequelia/som-vivo-front
+# frontend sounds
+Link para o frontend: https://github.com/jequelia/som-vivo-front
