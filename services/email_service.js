@@ -3,7 +3,6 @@ const { getMaxListeners } = require('../models/user');
 
 
 const sendEmail = async (email, user) => {
-
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {

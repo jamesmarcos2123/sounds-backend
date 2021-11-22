@@ -29,7 +29,6 @@ router.delete('/:id', Security.isAutenticado,  Security.hasRole('adm'),findId, a
 });
 
 router.put('/:id', findId, async (req, res) => {
-  
   req.body.senha = await Security.encripta(req.body.senha)
   await req.usuario.set(req.body).save();
   res.status(200).json({"message":"Usuario atualizado com sucesso"})
